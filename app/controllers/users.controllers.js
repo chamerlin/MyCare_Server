@@ -152,7 +152,7 @@ exports.updateOwnDetails = async (req, res) => {
   user.fullname = fullname
   user.ic = ic
   user.password = password == "" ? user.password : hash
-  user.location = location
+  user.location = location == "" ? user.location : location
 
   await user.save()
 
