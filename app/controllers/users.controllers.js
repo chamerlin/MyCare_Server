@@ -169,13 +169,3 @@ exports.getOwnDetails = async(req, res) => {
     res.status(500).send({ message: err.message || `Failed to get details of user ${req.body.userId}.` })
   })
 }
-
-exports.exists = (req, res) => {
-  User.findOne({ phone: req.body.phone })
-  .then(data => res.send(data))
-  .catch(err => {
-    res.status.send({
-      message: err.message || `User not found with ${req.body.phone}.`
-    })
-  })
-}
